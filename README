@@ -1,4 +1,4 @@
-A javascript indexer that can best be observed in the test function in idx.js or below:
+A javascript indexer that can be best observed in the test function in idx.js or below:
 
 indexer_test = function(no) {
     var no = no || 100;
