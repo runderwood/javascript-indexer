@@ -1,0 +1,24 @@
+A javascript indexer that can best be observed in the test function in idx.js or below:
+
+indexer_test = function(no) {
+    var no = no || 100;
+    function rndchar() {
+        var r = Math.round(Math.random()*25)+65;
+        return String.fromCharCode(r);
+    }
+    function rndstr() {
+        var l = Math.round(Math.random()*12)+3;
+        for(var s=""; l--; s += rndchar());
+        return s;
+    }
+    for(var lst=[]; no>0; no--) {
+        var st = rndstr()+', '+rndstr();
+        lst.push([st, st, no]);
+    }
+    lst.push(["test", "Testy Testerton", 999999]);
+    var idx = new indexer(lst); // instantiate with list of lists from above
+    return idx;
+}
+
+var idx = indexer_test(1000);
+idx.search("test");
