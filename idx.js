@@ -64,3 +64,22 @@ indexer.prototype = {
         return u;
     }
 }
+indexer_test = function(no) {
+    var no = no || 100;
+    function rndchar() {
+        var r = Math.round(Math.random()*25)+65;
+        return String.fromCharCode(r);
+    }
+    function rndstr() {
+        var l = Math.round(Math.random()*12)+3;
+        for(var s=""; l--; s += rndchar());
+        return s;
+    }
+    for(var lst=[]; no>0; no--) {
+        var st = rndstr()+', '+rndstr();
+        lst.push([st, st, no]);
+    }
+    lst.push(["test", "Testy Testerton", 999999]);
+    var idx = new indexer(lst);
+    return idx;
+}
